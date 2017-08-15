@@ -22,6 +22,7 @@ Shopware plugin to apply project-specific DB-Updates
 ```
 2. create empty directory  `vio_sql/migrations`
 3. create Migration-Class mit fortlaufender Nummer im Klassennamen und im Dateinamen  `100-migration.php`
+
 ```php
 <?php
 
