@@ -6,14 +6,24 @@
  * Time: 13:31
  */
 
-namespace  Shopware\Components\Migrations;
+namespace  VioDbMigration\Components\Migrations;
 
 use Shopware\Components\DependencyInjection\Container;
+use Shopware\Components\Migrations\AbstractMigration;
 
-abstract class VioAbstractMigration extends AbstractMigration{
+abstract class VioAbstractMigration extends AbstractMigration {
 
     /** @var  Container $container */
     protected $container;
+
+    /**
+     *
+     * @return string|null
+     */
+    public function getDependendSwMigrationStep()
+    {
+        return null;
+    }
 
     /**
      * @param string $themeNamePattern

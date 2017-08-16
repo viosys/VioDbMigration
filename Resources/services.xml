@@ -6,12 +6,13 @@
 
     <services>
 
-
-
         <service id="vio_db_migration.commands.db_migration" class="VioDbMigration\Commands\DbMigration">
             <tag name="console.command" />
         </service>
 
+        <service class="VioDbMigration\Commands\MigrationsMigrateCommand" id="vio_db_migration.commands.migrations_migrate_command">
+            <tag name="console.command"/>
+        </service>
 
     </services>
 </container>
