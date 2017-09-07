@@ -7,7 +7,7 @@
             <label lang="de">PHP Namespace</label>
             <label>PHP namespace</label>
             <value>VioDbMigration</value>
-            <description lang="de">PHP Namespace der Migratioschritte</description>
+            <description lang="de">PHP Namespace der Migrationsschritte</description>
             <description>PHP namespace of the migration steps</description>
         </element>
         <element>

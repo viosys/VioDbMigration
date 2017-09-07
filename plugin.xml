@@ -2,8 +2,8 @@
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">VIO.DbMigration</label>
-    <label lang="en">VIO.DbMigration</label>
-    <version>1.1.0</version>
+    <label>VIO.DbMigration</label>
+    <version>1.2.0</version>
     <copyright>(c) by VIOSYS AG</copyright>
     <license>proprietary</license>
     <link>https://www.viosys.com</link>
@@ -11,8 +11,11 @@
 
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="1.2.0">
+        <changes lang="de">Migrationsnamespace und Verzeichnis konfigurierbar gemacht</changes>
+    </changelog>
     <changelog version="1.1.0">
-        <changes>Container in Migrationsscript verfügbar gemacht</changes>
+        <changes lang="de">Container in Migrationsscript verfügbar gemacht</changes>
     </changelog>
     <changelog version="1.0.0">
         <changes lang="de">Erste Veröffentlichung</changes>
