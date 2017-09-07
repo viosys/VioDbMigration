@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element>
+            <name>VioMigrationNamespace</name>
+            <label lang="de">PHP Namespace</label>
+            <label>PHP namespace</label>
+            <value>VioDbMigration</value>
+            <description lang="de">PHP Namespace der Migratioschritte</description>
+            <description>PHP namespace of the migration steps</description>
+        </element>
+        <element>
+            <name>VioMigrationPath</name>
+            <label lang="de">Migrationsverzeichnis</label>
+            <label>migration directory</label>
+            <value>vio_sql/migrations</value>
+        </element>
+    </elements>
+</config>

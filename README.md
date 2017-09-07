@@ -4,7 +4,9 @@ Shopware plugin to apply project-specific DB-Updates
 
 ## Setup
 
-1. add composer dependency 
+1. add composer dependency
+
+`composer.json` 
 ```json
 {
     "require": {
@@ -12,12 +14,22 @@ Shopware plugin to apply project-specific DB-Updates
         ...
     },    
     ...
-    "repositories": [
-        {
-            "type": "git",
-            "url": "ssh://gitssh@80.153.5.86:30122/tfs/VIOSYS/Shopware%20Plugins/_git/VioDbMigration"
+    "repositories": [{
+        "type": "composer",
+        "url": "https://satis.viosys.de/"
+    }]
+}
+```
+
+`auth.json`
+```json
+{
+  "http-basic": {
+        "satis.viosys.de": {
+            "username": "vioSatis",
+            "password": "t3Sq2cNBpVhyu"
         }
-    ]
+  }
 }
 ```
 2. create empty directory  `vio_sql/migrations`

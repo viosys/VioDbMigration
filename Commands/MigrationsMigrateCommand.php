@@ -58,12 +58,15 @@ class MigrationsMigrateCommand extends \Shopware\Commands\MigrationsMigrateComma
 
         $mode = $input->getOption('mode');
 
+        $migrationPath = $this->getContainer()->get('config')->getByNamespace('VioDbMigration', 'VioMigrationPath');
+        $migrationPath = ltrim($migrationPath, '/');
+
         $migrationManger = new VioDependencyManager(
             $connection,
             $rootDir . '/_sql/migrations',
              new VioManager(
                  $connection,
-                 $rootDir . '/vio_sql/migrations',
+                 $rootDir . '/' . $migrationPath,
                  $this->getContainer()
              )
             );
