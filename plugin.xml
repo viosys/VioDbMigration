@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">VIO.DbMigration</label>
     <label>VIO.DbMigration</label>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <copyright>(c) by VIOSYS AG</copyright>
     <license>proprietary</license>
     <link>https://www.viosys.com</link>
@@ -11,6 +11,9 @@
 
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="1.3.0">
+        <changes lang="de">Deployskript hinzugefügt</changes>
+    </changelog>
     <changelog version="1.2.0">
         <changes lang="de">Migrationsnamespace und Verzeichnis konfigurierbar gemacht</changes>
     </changelog>
