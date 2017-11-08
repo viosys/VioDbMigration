@@ -167,11 +167,11 @@ if($elements->length > 0) {
             if($element->getAttribute('scope')) {
                 $scope = $element->getAttribute('scope');
             }
-            $options = null;
+            $elOptions = null;
             $optionsElement = $element->getElementsByTagName('options')->item(0);
             if($optionsElement) {
-                $options = serializeNode($optionsElement);
-                $options = serialize($options);
+                $elOptions = serializeNode($optionsElement);
+                $elOptions = serialize($elOptions);
             }
             $insertElementStmnt->execute([
                 'formId' => $formId,
@@ -183,7 +183,7 @@ if($elements->length > 0) {
                 'required' => $required,
                 'position' => $position,
                 'scope' => $scope,
-                'options' => $options
+                'options' => $elOptions
             ]);
             $elemntIDs[$name] = $pdo->lastInsertId();
         }
