@@ -67,7 +67,7 @@ class VioDependencyManager extends Manager
         {
             $this->collectVioMigrationSteps();
             $viomigration = $this->vioManager->getNextMigrationForVersion($this->vioManager->getCurrentVersion());
-            while ($viomigration->getVersion() <= $this->migrationsStops[$className] ){
+            while ($viomigration && $viomigration->getVersion() <= $this->migrationsStops[$className] ){
                 $this->log(sprintf('Apply VioMigrationNumber: %s - %s', $viomigration->getVersion(), $viomigration->getLabel()));
                 $this->vioManager->apply($viomigration);
                 $viomigration = $this->vioManager->getNextMigrationForVersion($this->vioManager->getCurrentVersion());
