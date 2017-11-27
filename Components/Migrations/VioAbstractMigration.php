@@ -96,6 +96,7 @@ abstract class VioAbstractMigration extends AbstractMigration {
          localeID =". $this->connection->quote($localeId).",
          name = ".$this->connection->quote($name).",
          value = ".$this->connection->quote($value).",
+         dirty = 1,
          created = now(),
          updated = now()";
 
