@@ -23,6 +23,7 @@ class VioManager extends Manager {
     {
         parent::__construct($connection, $migrationPath);
         $this->container = $container;
+        $this->createSchemaTable();
     }
 
     public function createSchemaTable()
