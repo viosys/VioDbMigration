@@ -109,4 +109,27 @@ abstract class VioAbstractMigration extends AbstractMigration {
         return $this;
     }
 
+    public function installPlugin($pluginName, $forceInstall = false)
+    {
+        /** @var InstallerService $pm */
+        $pm = $this->container->get('shopware_plugininstaller.plugin_manager');
+        $pm->refreshPluginList();
+        $plugin = $pm->getPluginByName($pluginName);
+        if($plugin){
+            if(!$plugin->getInstalled()){
+                $pm->installPlugin($plugin);
+            }
+            elseif($forceInstall){
+                $pm->uninstallPlugin($plugin);
+                $pm->installPlugin($plugin);
+            }
+            if(version_compare($plugin->getVersion(), $plugin->getUpdateVersion(), '<')){
+                $pm->updatePlugin($plugin);
+            }
+            if(!$plugin->getActive()) {
+                $pm->activatePlugin($plugin);
+            }
+        }
+    }
+
 }
