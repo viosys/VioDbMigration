@@ -156,7 +156,7 @@ abstract class VioAbstractMigration extends AbstractMigration {
      * @param string $template - variable in template
      * @param int $active
      */
-    public function insertGroup($name, $template, $active) {
+    public function insertPageGroup($name, $template, $active) {
         $sql ="REPLACE INTO s_cms_static_groups SET
  s_cms_static_groups.name = ". $this->connection->quote($name).",
                  template = ". $this->connection->quote($template).",
