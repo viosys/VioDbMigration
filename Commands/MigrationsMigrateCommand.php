@@ -55,6 +55,7 @@ class MigrationsMigrateCommand extends \Shopware\Commands\MigrationsMigrateComma
     {
         $connection = $this->getContainer()->get('db_connection');
         $rootDir = $this->getContainer()->getParameter('kernel.root_dir');
+        $baseDir = $this->getContainer()->getParameter('shopware.app.rootdir');
 
         $mode = $input->getOption('mode');
 
@@ -66,7 +67,7 @@ class MigrationsMigrateCommand extends \Shopware\Commands\MigrationsMigrateComma
             $rootDir . '/_sql/migrations',
              new VioManager(
                  $connection,
-                 $rootDir . '/' . $migrationPath,
+                 $baseDir . '/' . $migrationPath,
                  $this->getContainer()
              )
             );
