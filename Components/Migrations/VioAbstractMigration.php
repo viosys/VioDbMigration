@@ -132,4 +132,35 @@ abstract class VioAbstractMigration extends AbstractMigration {
         }
     }
 
+    /**
+     * Inserts a new page to an existing group
+     * @param string $description
+     * @param string $grouping - page group
+     * @param int $active
+     * @param int $position
+     */
+    public function insertPage($description, $grouping, $active, $position) {
+            $sql = "REPLACE INTO s_cms_static SET
+              description = ". $this->connection->quote($description).",
+                 grouping = ". $this->connection->quote($grouping).",
+                   active = ". $active .",
+                 position = ". $position .",
+                  updated = now()";
+
+        $this->addSql($sql);
+    }
+
+    /**
+     * Inserts a new page group
+     * @param string $name
+     * @param string $template - variable in template
+     * @param int $active
+     */
+    public function insertPageGroup($name, $template, $active) {
+        $sql ="REPLACE INTO s_cms_static_groups SET
+ s_cms_static_groups.name = ". $this->connection->quote($name).",
+                 template = ". $this->connection->quote($template).",
+                   active = ". $active;
+        $this->addSql($sql);
+    }
 }
