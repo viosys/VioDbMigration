@@ -55,7 +55,7 @@ class MigrationsMigrateCommand extends \Shopware\Commands\MigrationsMigrateComma
     {
         $connection = $this->getContainer()->get('db_connection');
         $rootDir = $this->getContainer()->getParameter('kernel.root_dir');
-        $baseDir = $this->getContainer()->getParameter('shopware.app.rootdir');
+        $baseDir =  $this->getContainer()->hasParameter('shopware.app.rootdir') ? $this->getContainer()->getParameter('shopware.app.rootdir') : $rootDir;
 
         $mode = $input->getOption('mode');
 
