@@ -145,7 +145,7 @@ abstract class VioAbstractMigration extends AbstractMigration {
                  grouping = ". $this->connection->quote($grouping).",
                    active = ". $active .",
                  position = ". $position .",
-                  updated = now()";
+                  changed = now()";
 
         $this->addSql($sql);
     }
