@@ -39,11 +39,12 @@ class DbMigration extends ShopwareCommand
 
         $connection = $this->getContainer()->get('db_connection');
         $rootDir = $this->getContainer()->getParameter('kernel.root_dir');
+        $baseDir =  $this->getContainer()->hasParameter('shopware.app.rootdir') ? $this->getContainer()->getParameter('shopware.app.rootdir') : $rootDir;
 
         $mode = $input->getOption('mode');
         $migrationPath = $this->getContainer()->get('config')->getByNamespace('VioDbMigration', 'VioMigrationPath');
         $migrationPath = ltrim($migrationPath, '/');
-        $migrationManger = new VioManager($connection, $rootDir . '/' . $migrationPath, $this->getContainer());
+        $migrationManger = new VioManager($connection, $baseDir . '/' . $migrationPath, $this->getContainer());
         $migrationManger->run($mode);
     }
 }
