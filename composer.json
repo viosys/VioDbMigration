@@ -1,6 +1,7 @@
 {
   "name": "viosys/vio-db-migration",
   "description": "Shopware plugin to apply project-specific DB-Updates",
+  "license": "MIT",
   "keywords": ["shopware", "plugin"],
   "type": "shopware-plugin",
   "extra": {
