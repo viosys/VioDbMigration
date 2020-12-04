@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">VIO.DbMigration</label>
     <label>VIO.DbMigration</label>
-    <version>2.3.3</version>
+    <version>2.3.4</version>
     <copyright>(c) by VIOSYS AG</copyright>
     <license>proprietary</license>
     <link>https://www.viosys.com</link>
@@ -11,8 +11,12 @@
 
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="2.3.4">
+        <changes>Added helper mthod to clean remove Plugin i.e. to delete an old ionCube Plugin.</changes>
+        <changes lang="de">Es wurde eine Hilfsmethode zum sauberen Entfernen eines Plugins hinzugefügt, z.B. Zum Löschen eines alten ionCube-Plugins.</changes>
+    </changelog>
     <changelog version="2.3.0">
-        <changes lang="de">Zugriff auf Wurzeverzeichniss angepasst, kompatible mit composer Projekten</changes>
+        <changes lang="de">Zugriff auf Wurzelverzeichniss angepasst, kompatibel mit composer Projekten</changes>
     </changelog>
     <changelog version="2.2.0">
         <changes lang="de">Methoden zum Erstellen neuer Shopseiten und Shopseitengruppen hinzugefügt</changes>

@@ -8,8 +8,11 @@
 
 namespace  VioDbMigration\Components\Migrations;
 
+use Doctrine\DBAL\Query\QueryBuilder;
 use Shopware\Components\DependencyInjection\Container;
 use Shopware\Components\Migrations\AbstractMigration;
+use Symfony\Component\Filesystem\Exception\IOException;
+use Symfony\Component\Filesystem\Filesystem;
 
 abstract class VioAbstractMigration extends AbstractMigration {
 
@@ -128,6 +131,44 @@ abstract class VioAbstractMigration extends AbstractMigration {
             }
             if(!$plugin->getActive()) {
                 $pm->activatePlugin($plugin);
+            }
+        }
+    }
+
+    /**
+     * @param string $pluginName
+     */
+    private function removePlugin($pluginName)
+    {
+        $pluginDirs = $this->container->getParameter('shopware.plugin_directories');
+        /** @var QueryBuilder $qb */
+        $qb = $this->container->get('dbal_connection')->createQueryBuilder();
+        $qb->select('namespace')
+            ->from('s_core_plugins')
+            ->where('name = :name')
+            ->setParameter('name', $pluginName);
+        $pluginNamespace = $qb->execute()->fetchColumn();
+
+        if (!empty($pluginNamespace)) {
+            if ($pluginNamespace !== 'ShopwarePlugins') {
+                $pluginPath = $pluginDirs['Community'] . DIRECTORY_SEPARATOR . $pluginNamespace . DIRECTORY_SEPARATOR . $pluginName;
+            } else {
+                $pluginPath = $pluginDirs[$pluginNamespace] . DIRECTORY_SEPARATOR . $pluginName;
+            }
+            if (is_dir($pluginPath)) {
+                $fs = new Filesystem();
+                try {
+                    $fs->remove($pluginPath);
+                } catch (IOException $e) {
+                    return false;
+                }
+
+                $qb = $this->container->get('dbal_connection')->createQueryBuilder();
+                $qb->delete('s_core_plugins')
+                    ->where('name = :name')
+                    ->setParameter('name', $pluginName)
+                    ->execute();
+
             }
         }
     }
