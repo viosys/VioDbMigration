@@ -84,6 +84,7 @@ There is a list of predefined method to executed common migrations:
 2. `setConfigValue` -> insert or update a shop/plugin config value
 3. `addCoreSnippets` -> replace a snippet
 4. `installPlugin` -> shorthand to install a plugin
+4. `removePlugin` -> shorthand to clean delete a plugin
 4. `insertPage` -> create shop page
 4. `insertPageGroup` -> create a shop page group
 
